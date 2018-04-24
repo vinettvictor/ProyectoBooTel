@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class inventarioDepartamento {
     ArrayList<Departamento> invDepto = new ArrayList<Departamento>();
-    
+    private int precio;
     public void Depto(){
         agregarDepto(invDepto,1,3,3,5,1,"UFRO",180000);
         agregarDepto(invDepto,2,2,2,1,6,"centro",120000);
@@ -39,4 +39,24 @@ public class inventarioDepartamento {
         }
         
     }
+    
+
+      
+          public int getValorDepto(int nDepto){
+              
+       if(nDepto==1){
+            precio = 180000;
+       }else if (nDepto==2){
+           precio = 120000;
+       }else if (nDepto==3){
+           precio = 80000;
+       }else if (nDepto==4){
+           precio = 65000;
+       }else if (nDepto==5){
+           precio = 90000;
+       }
+       return precio;
+       }
+
+
 }

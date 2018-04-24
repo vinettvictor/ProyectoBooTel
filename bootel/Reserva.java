@@ -12,15 +12,16 @@ package bootel;
  * @author Vinett
  */
 public class Reserva {
-    private String nombreEstudiante;
-    private int numeroDepto;
-    private String rutEstudiante;
+    public String nombreEstudiante;
+    public int numeroDepto,precio;
+    public String rutEstudiante;
    
     
-    public Reserva(String nombreEstudiante,String rutEstudiante,int numeroDepto){
+    public Reserva(String nombreEstudiante,String rutEstudiante,int numeroDepto,int precio){
         this.nombreEstudiante=nombreEstudiante;
         this.rutEstudiante=rutEstudiante;
         this.numeroDepto=numeroDepto;
+        this.precio = precio;
 
     }
     
@@ -29,5 +30,7 @@ public class Reserva {
         msj = "\t"+this.nombreEstudiante;
         msj +="\t\t"+this.rutEstudiante;
         msj +="\t\t"+this.numeroDepto;
+        msj +="\t\t"+this.precio;
     }
+
 }

@@ -5,18 +5,43 @@
  */
 package bootel;
 
+
 /**
  *
  * @author Vinett
  */
 public class Persona {
-     private String nombre;
-     private String rut;
-     private String institucion;
+   public String nombre;
+   public String rut;
+   public String institucion;
      
      public Persona(String nombre,String rut,String institucion){
          this.nombre=nombre;
          this.rut=rut;
          this.institucion=institucion;
+     }
+     
+     public String getNombre(){
+         return this.nombre;
+     }
+     
+     public String getRut(){
+         return this.rut;
+     }
+     
+     public String getInstitucion(){
+         return this.institucion;
+     }
+     
+     public void setNombre(String nom){
+         this.nombre=nom;
+     }
+     
+     public void setRut(String r){
+         this.rut=r;
+     }
+     
+     public void setInstitucion(String inst){
+         this.institucion=inst;
      }
 }
