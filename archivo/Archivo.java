@@ -11,8 +11,8 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.*;
 import java.lang.String;
-import bootel.Persona;
 import bootel.Reserva;
+import bootel.Cliente;
 /**
  *
  * @author Vinett
@@ -20,7 +20,7 @@ import bootel.Reserva;
 public class Archivo {
     
     // Se escribira un archivo en la carpeta del proyecto llamado Reserva.txt
-     public void registrarUsuario(Persona nueva){
+     public void registrarUsuario(Cliente nueva){
         try{
             File f = new File("Registro.txt");
             FileWriter fw;
@@ -57,11 +57,11 @@ public class Archivo {
                // boolean bandera = false;
                 while((linea = br.readLine()) != null){
                     String estudiante [] = linea.split(";");
-                    if (estudiante[1].equals(rutEstudiante)&& estudiante[0].equals(nombreEstudiante)) {
+                    if (estudiante[1].equals(rutEstudiante) && estudiante[0].equals(nombreEstudiante)) {
                         bandera = true;
-                        Persona p = new Persona(estudiante[0],estudiante[1],estudiante[2]);
+                        Cliente c = new Cliente(estudiante[0],estudiante[1],estudiante[2]);
                         
-                        System.out.println("Estimado :"+p.getNombre());                                                      
+                        System.out.println("Estimado :"+c.getNombre());                                                      
                         System.out.println("Su Reserva ha sido realizada con exito!");
                         
                     }
