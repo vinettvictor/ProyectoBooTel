@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Vinett
+ * @author V. Vinett, C. Herrera, J. llanos.
  */
 public class inventarioDepartamento {
     ArrayList<Departamento> invDepto = new ArrayList<Departamento>();
@@ -42,8 +42,7 @@ public class inventarioDepartamento {
     
 
       
-          public int getValorDepto(int nDepto){
-              
+          public int getValorDepto(int nDepto){             
        if(nDepto==1){
             precio = 180000;
        }else if (nDepto==2){
@@ -57,6 +56,11 @@ public class inventarioDepartamento {
        }
        return precio;
        }
+          public void deptoNoDisponible(int nDepto){
+              invDepto.remove(nDepto);
+              
+          }
+          
 
 
 }

@@ -9,7 +9,7 @@ package bootel;
 
 /**
  *
- * @author Vinett
+ * @author V. Vinett, C. Herrera, J. llanos.
  */
 public class Reserva {
     public String nombreEstudiante;

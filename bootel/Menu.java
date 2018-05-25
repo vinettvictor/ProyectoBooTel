@@ -9,7 +9,7 @@ import archivo.Archivo;
 import java.util.Scanner;
 /**
  *
- * @author Vinett
+ * @author V. Vinett, C. Herrera, J. llanos.
  */
 public class Menu {
     Scanner sc = new Scanner(System.in);
@@ -17,6 +17,7 @@ public class Menu {
     String nombreEstudiante,institucion,rutEstudiante;
     int nDepto;
     int precio=0;
+    int estado;
    
     private int opcion;
     private boolean op = true;
@@ -50,7 +51,7 @@ public class Menu {
                         break;
                         
                     case 2:
-                        Validar valida = new Validar();
+                        Validador valida = new Validador();
                         System.out.println("Bienvenido");
                         do {
                         System.out.println("Por favor ingrese su nombre ");
@@ -75,7 +76,7 @@ public class Menu {
                             System.out.println("Asegurate de ingresar una institucion correcta");
                         }
                         }while(!valida.validarInstitucion(institucion));                       
-                        Persona estudiante = new Persona(nombreEstudiante,rutEstudiante,institucion);
+                        Cliente estudiante = new Cliente(nombreEstudiante,rutEstudiante,institucion);
                         registra.registrarUsuario(estudiante);
                         break;
                     case 3 :
@@ -91,7 +92,8 @@ public class Menu {
                         
                         precio = p.getValorDepto(nDepto);
                         
-                        Reserva reserva = new Reserva(nombreEstudiante,rutEstudiante,nDepto,precio);                       
+                        Reserva reserva = new Reserva(nombreEstudiante,rutEstudiante,nDepto,precio);  
+                        
                         registra.reservarDepto(reserva,rutEstudiante,nombreEstudiante);
                         
                         

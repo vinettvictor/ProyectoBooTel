@@ -8,17 +8,15 @@ package bootel;
 
 /**
  *
- * @author Vinett
+ * @author V. Vinett, C. Herrera, J. llanos.
  */
 public class Persona {
    public String nombre;
    public String rut;
-   public String institucion;
      
-     public Persona(String nombre,String rut,String institucion){
+     public Persona(String nombre,String rut){
          this.nombre=nombre;
          this.rut=rut;
-         this.institucion=institucion;
      }
      
      public String getNombre(){
@@ -29,19 +27,11 @@ public class Persona {
          return this.rut;
      }
      
-     public String getInstitucion(){
-         return this.institucion;
-     }
-     
      public void setNombre(String nom){
          this.nombre=nom;
      }
      
      public void setRut(String r){
          this.rut=r;
-     }
-     
-     public void setInstitucion(String inst){
-         this.institucion=inst;
      }
 }
