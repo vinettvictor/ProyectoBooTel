@@ -7,88 +7,52 @@ package bootel;
 
 /**
  *
- * @author Vinett
+ * @author V. Vinett, C. Herrera, J. llanos.
  */
 public class Departamento {
-    private int numero;
-    private int numeroHabitaciones;
-    private int capacidad;
-    private int distanciaCentro;
-    private int distanciaU;
-    private int precio;
-    private String parteCercana;
+    public String numero;
+    public String nHabitacion;
+    public String nBaño;
+    public String estacionamiento;
+    public String capacidad;
+    public String distC;
+    public String distU;
+    public String valor;
+    public String parteCercana;
+    public String infoDepto;
   
     
-    
-    public Departamento(int numero, int numeroHabitaciones, int capacidad,int distanciaCentro,int distanciaU,String parteCercana,int precio){
+  
+    public Departamento(String numero, String nHabitacion,String nBaño,String estacionamiento, String capacidad,String distC,String distU,String parteCercana,String valor,String infoDepto){
         this.numero=numero;
-        this.numeroHabitaciones=numeroHabitaciones;
+        this.nHabitacion=nHabitacion;
+        this.nBaño=nBaño;
+        this.estacionamiento=estacionamiento;
         this.capacidad=capacidad;
-        this.distanciaCentro=distanciaCentro;
-        this.distanciaU=distanciaU;
+        this.distC=distC;
+        this.distU=distU;
         this.parteCercana=parteCercana;
-        this.precio=precio;
+        this.valor=valor;
+        this.infoDepto=infoDepto;
         
     }
+
+
     
-    public int getNumero(){
-        return this.numero;
-    }
     
-    public int getNumeroHabitaciones(){
-        return this.numeroHabitaciones;
-    }
-    
-    public int getCapacidad(){
-        return this.capacidad;
-    }
-    
-    public int getDistanciaCentro(){
-        return this.distanciaCentro;
-    }
-    
-    public int getDisntanciaU(){
-        return this.distanciaU;
-    }
-    
-    public int getPrecio(){
-        return this.precio;
-    }
-    
-    public void setNumero(int num){
-        this.numero=num;
-    }
-       
-    public void setNumeroHabitaciones(int numH){
-        this.numeroHabitaciones=numH;
-    }
-    
-    public void setCapacidad(int cap){
-        this.capacidad=cap;
-    }
-    
-    public void setDistanciaCentro(int distC){
-        this.distanciaCentro=distC;
-    }
-    
-    public void setDisntanciaU (int distU){
-        this.distanciaU=distU;
-    }
-    
-    public void setPrecio(int prc){
-        this.precio=prc;
-    }
-  
     
     public void mostrarDepto(){
         String msj="";
-        msj = "\t"+this.numero;
+        msj =  "\t"+this.numero;
         msj += "\t\t"+this.capacidad;
-        msj += "\t\t"+this.numeroHabitaciones;
-        msj +="\t\t\t"+this.distanciaCentro;
-        msj +="\t\t\t\t"+this.distanciaU;
-        msj +="\t\t\t"+this.parteCercana;        
-        msj += "\t\t\t"+this.precio;
+        msj += "\t\t"+this.nHabitacion;
+        msj += "\t\t"+this.nBaño;
+        msj += "\t\t"+this.estacionamiento;
+        msj += "\t\t\t"+this.distC;
+        msj += "\t\t\t\t"+this.distU;
+        msj += "\t\t\t"+this.parteCercana;        
+        msj += "\t\t\t"+this.valor;
+        msj += "\t\t"+this.infoDepto;
         System.out.println(msj);
     }
     

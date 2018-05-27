@@ -5,18 +5,33 @@
  */
 package bootel;
 
+
 /**
  *
- * @author Vinett
+ * @author V. Vinett, C. Herrera, J. llanos.
  */
 public class Persona {
-     private String nombre;
-     private String rut;
-     private String institucion;
+   public String nombre;
+   public String rut;
      
-     public Persona(String nombre,String rut,String institucion){
+     public Persona(String nombre,String rut){
          this.nombre=nombre;
          this.rut=rut;
-         this.institucion=institucion;
+     }
+     
+     public String getNombre(){
+         return this.nombre;
+     }
+     
+     public String getRut(){
+         return this.rut;
+     }
+     
+     public void setNombre(String nom){
+         this.nombre=nom;
+     }
+     
+     public void setRut(String r){
+         this.rut=r;
      }
 }
