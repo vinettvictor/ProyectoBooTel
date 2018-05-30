@@ -10,11 +10,7 @@ import bootel.Admin;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
-import java.io.*;
-import java.lang.String;
-import bootel.Reserva;
 import bootel.Cliente;
-import bootel.Register;
 /**
  *
  * @author Vinett
