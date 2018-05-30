@@ -5,7 +5,7 @@
  */
 package gui;
 
-import bootel.Login;
+import bootel.Register;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -24,7 +24,7 @@ import javax.swing.border.EmptyBorder;
  */
 public class JRegister extends JDialog implements ActionListener {
     private final JPanel contentPanel;
-    private JTextField textField;
+    private JTextField textField,textField_r1,textField_r2;
     private JPasswordField textField_1;
     private JButton btnIngresar;
     private VentanaInicio ventanaPrincipal;
@@ -34,7 +34,7 @@ public class JRegister extends JDialog implements ActionListener {
         this.contentPanel = new JPanel();
         this.ventanaPrincipal = ventana;
         setResizable(false);
-        setTitle("Login");
+        setTitle("Register");
         setBounds(this.getParent().getX() + 600, this.getParent().getY() + 350, 325, 279);
 	getContentPane().setLayout(new BorderLayout());
 	contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -63,18 +63,18 @@ public class JRegister extends JDialog implements ActionListener {
             contentPanel.add(lblNewLabel_r1);     
         }
         {
-                textField = new JTextField();
-                contentPanel.add(textField);
-                textField.setColumns(10);
+                textField_r1 = new JTextField();
+                contentPanel.add(textField_r1);
+                textField_r1.setColumns(10);
         }
                  {
             JLabel lblNewLabel_r2 = new JLabel("Institucion");
             contentPanel.add(lblNewLabel_r2);     
         }
         {
-                textField = new JTextField();
-                contentPanel.add(textField);
-                textField.setColumns(10);
+                textField_r2 = new JTextField();
+                contentPanel.add(textField_r2);
+                textField_r2.setColumns(10);
         }
 
                 
@@ -93,7 +93,8 @@ public class JRegister extends JDialog implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
        if (ae.getSource() == btnIngresar){
-           Login login = new Login(textField.getText(),String.copyValueOf(textField_1.getPassword()));
+           Register register = new Register(textField.getText(),textField_1.getText(),textField_r1.getText(),textField_r2.getText());
+           register.registrarUsuario();
            
                
            }

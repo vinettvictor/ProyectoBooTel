@@ -30,7 +30,7 @@ public class VentanaInicio extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100,0, 1024, 720);
         contentPane = new JPanel();
-        contentPane.setBackground(new Color(128, 0, 0));
+        contentPane.setBackground(new Color(255, 200, 0));
         contentPane.setForeground(new Color(0, 0, 0));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(null);
@@ -42,14 +42,14 @@ public class VentanaInicio extends JFrame implements ActionListener {
         JLabel lblBooTel = new JLabel("BooTel");
         lblBooTel.setBounds(302, 310, 413, 113);
         lblBooTel.setFont(new Font("Arial Black", Font.PLAIN, 80));
-        lblBooTel.setForeground(new Color(218, 165, 32));
+        lblBooTel.setForeground(new Color(0, 0, 0));
         contentPane.add(lblBooTel);
         
         
         JLabel creators = new JLabel("V. Vinett");
         creators.setBounds(370, 550, 500, 100);
         creators.setFont(new Font("Arial Black", Font.PLAIN, 12));
-        creators.setForeground(new Color(218, 165, 32));
+        creators.setForeground(new Color(0, 0, 0));
         contentPane.add(creators);
         
         
