@@ -14,8 +14,8 @@ public class Cliente extends Persona{
     public String nombre;
     public String rut;
     
-    public Cliente(String nombre, String rut,String institucion) {
-        super(nombre, rut);
+    public Cliente(String nombre, String rut,String pass,String institucion) {
+        super(nombre, rut,pass);
         this.institucion=institucion;
         this.nombre=nombre;
         this.rut=rut;

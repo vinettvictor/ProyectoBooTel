@@ -6,7 +6,7 @@
 package bootel;
 
 import java.util.Scanner;
-import archivo.Archivo;
+import archivo.ArchivoRegister;
 import archivo.ArchivoAdmin;
 /**
  *
@@ -14,12 +14,13 @@ import archivo.ArchivoAdmin;
  */
 public class MenuAdmin {
     Scanner scr = new Scanner(System.in);
-    Archivo registra = new Archivo();
+    ArchivoRegister registra = new ArchivoRegister();
     ArchivoAdmin registraDato = new ArchivoAdmin();
     Validador valida;
     
     private String nombre,rut;
-    private int codIdent;
+    private String codIdent;
+    private String pass;
     private int opcion;
     private boolean op = true;
     
@@ -29,12 +30,13 @@ public class MenuAdmin {
             System.out.println("Menu");
             System.out.println("1. Registrarse");
             System.out.println("2. Agregar Departamentos");
-            System.out.println("3. Salir");
+            System.out.println("3. Eliminar Departamento");
+            System.out.println("4. Salir");
             
             System.out.println("Seleccione una opción");
             opcion = scr.nextInt();
             
-            if (opcion == 3){
+            if (opcion == 4){
                 
                 System.out.println("Usted ha salido del programa");
                 break;
@@ -49,9 +51,12 @@ public class MenuAdmin {
                         System.out.println("Rut");
                         rut = scr.next();
                         System.out.println("Codigo identificador");
-                        codIdent = scr.nextInt();
+                        codIdent = scr.next();
+                        System.out.println("Ingrese la contraseña que desee");
+                        pass = scr.next();
                         
-                        Admin admin = new Admin(nombre,rut,codIdent);
+                        
+                        Admin admin = new Admin(nombre,rut,pass,codIdent);
                         registra.registrarAdmin(admin);
                         
                         break;
@@ -80,7 +85,13 @@ public class MenuAdmin {
 
                                 Departamento depto = new Departamento(numero,nHabitacion,nBaño,estacionamiento,capacidad,distC,distU,parteCercana,valor,infoDepto);
                                 registraDato.agregarDepto(depto);
+                                break;
                                          
+                    case 3: 
+                        System.out.println("Ingrese el numero de departamento que desee eliminar");
+                        String num = scr.next();
+                        registraDato.eliminarDepto(num);
+                        
                         break;
                         
                     default: 

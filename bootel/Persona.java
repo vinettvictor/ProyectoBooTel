@@ -13,10 +13,12 @@ package bootel;
 public class Persona {
    public String nombre;
    public String rut;
+   public String pass;
      
-     public Persona(String nombre,String rut){
+     public Persona(String nombre,String rut,String pass){
          this.nombre=nombre;
          this.rut=rut;
+         this.pass=pass;
      }
      
      public String getNombre(){

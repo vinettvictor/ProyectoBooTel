@@ -5,7 +5,7 @@
  */
 package bootel;
 
-import archivo.Archivo;
+import archivo.ArchivoRegister;
 import archivo.ArchivoAdmin;
 import archivo.ArchivoDepto;
 import java.util.Scanner;
@@ -15,10 +15,10 @@ import java.util.Scanner;
  */
 public class MenuCliente {
     Scanner sc = new Scanner(System.in);
-    Archivo registra = new Archivo();
+    ArchivoRegister registra = new ArchivoRegister();
     ArchivoDepto muestra = new ArchivoDepto();
     ArchivoAdmin ad = new ArchivoAdmin();
-    String nombreEstudiante,institucion,rutEstudiante;
+    String nombreEstudiante,institucion,rutEstudiante,pass;
     int nDepto;
     int precio=0;
     int estado;
@@ -73,16 +73,18 @@ public class MenuCliente {
                         do {
                         System.out.println("Por favor ingrese su universidad a la que pertenece");
                         institucion = sc.next();
-                        if(!valida.validarInstitucion(institucion)){
+                        if(!valida.validarTexto(institucion)){
                             System.out.println("Asegurate de ingresar una institucion correcta");
                         }
-                        }while(!valida.validarInstitucion(institucion));                       
-                        Cliente estudiante = new Cliente(nombreEstudiante,rutEstudiante,institucion);
+                        }while(!valida.validarTexto(institucion));  
+                        System.out.println("Ingrese una contraseña que desee");
+                        pass = sc.next();
+                        Cliente estudiante = new Cliente(nombreEstudiante,rutEstudiante,pass,institucion);
                         registra.registrarUsuario(estudiante);
                         break;
                     case 3 :
                         
-                        inventarioDepartamento p = new inventarioDepartamento();
+                       
                         System.out.println("Para realizar una reserva asegurese de estar registrado");
                         System.out.println("Ingrese su nombre");
                         nombreEstudiante = sc.next();
@@ -95,7 +97,7 @@ public class MenuCliente {
                         
                         Reserva reserva = new Reserva(nombreEstudiante,rutEstudiante,nDepto,precio);  
                         
-                        registra.reservarDepto(reserva,rutEstudiante,nombreEstudiante);
+                        muestra.reservarDepto(reserva,rutEstudiante,nombreEstudiante);
                         
                         
                         break;

@@ -42,7 +42,7 @@ public boolean validarNombre(String nombre){
    return validacion; 
 }
 
-public boolean validarInstitucion(String institucion){
+public boolean validarTexto(String institucion){
     boolean validacion = false;
     
     try {
