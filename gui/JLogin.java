@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -75,15 +76,33 @@ public class JLogin extends JDialog implements ActionListener{
     
     
     
-    
+            
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == btnIngresar){
-           Login login = new Login(textField.getText(),String.copyValueOf(textField_1.getPassword()));
-           login.usuarioExiste();
-               
-           }
+        interfaceMenu menu = new interfaceMenu();
+        if (ae.getSource() == btnIngresar ){
+            Login login = new Login(textField.getText(),String.copyValueOf(textField_1.getPassword()));
+            
+            if(login.usuarioClienteExiste() ){
+                menu.setDefaultCloseOperation(3);
+                menu.setSize(500,500);
+                menu.setLocationRelativeTo(null);
+                menu.setResizable(false);
+                menu.setTitle(" Menu  BooTel");
+                menu.setVisible(true);
+                dispose();
+                
+                
+            }else {               
+                JOptionPane.showMessageDialog(this, "El usuario no existe");
+                this.textField.setText("");
+                this.textField_1.setText("");
+                }
+            }
+              
+                
+           
         } 
     }
 
