@@ -6,10 +6,12 @@
 package archivo;
 
 import bootel.Cliente;
-import bootel.Login;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+
+
+
 
 /**
  *
@@ -17,10 +19,8 @@ import java.io.FileReader;
  */
 public class ArchivoLog {
     
-    
-    public void loginCliente(Login nueva,String nombre,String pass){
-        boolean bandera = false;
-         try {
+        public boolean existeCliente(String nombre, String pass){
+            try {
             File f = new File("Registro.txt");
             if(f.exists()){
                 FileReader fr = new FileReader(f);
@@ -29,32 +29,25 @@ public class ArchivoLog {
                // boolean bandera = false;
                 while((linea = br.readLine()) != null){
                     String estudiante [] = linea.split(";");
-                    if (estudiante[0].equals(nombre) && estudiante[1].equals(pass)) {
-                        bandera = true;
+                    if (estudiante[0].equals(nombre) && estudiante[2].equals(pass)) {
+                        
                         Cliente c = new Cliente(estudiante[0],estudiante[1],estudiante[2],estudiante[3]);
                         
                         System.out.println("Estimado :"+c.getNombre());                                                      
                         System.out.println("Ha iniciado session exitosamente");
                         
+                        return true;
                     }
                 }
-                if (bandera==false){
-                    System.out.println("Este cliente no se encuentra resgistrado");
-                    System.out.println("No se ha podido iniciar session");
-                }
-                
-            }else {
-                System.out.println("No hay nada por buscar");
-            }
+            }  
         }catch(Exception e){
-           // System.out.println("ERROR");
-        }
-    }
-    
-    
-        public void loginAdmin(Login nueva,String nombre,String pass){
-        boolean bandera = false;
-         try {
+         System.out.println("ERROR");
+        }  
+            return false;
+   }
+        
+            public boolean existeAdmin(String nombre, String pass){
+            try {
             File f = new File("Admins.txt");
             if(f.exists()){
                 FileReader fr = new FileReader(f);
@@ -64,24 +57,15 @@ public class ArchivoLog {
                 while((linea = br.readLine()) != null){
                     String estudiante [] = linea.split(";");
                     if (estudiante[0].equals(nombre) && estudiante[2].equals(pass)) {
-                        bandera = true;
+                        
                         Cliente c = new Cliente(estudiante[0],estudiante[1],estudiante[2],estudiante[3]);
-                        
-                        System.out.println("Estimado :"+c.getNombre());                                                      
-                        System.out.println("Ha iniciado session exitosamente");
-                        
+                        return true;
                     }
                 }
-                if (bandera==false){
-                    System.out.println("Este cliente no se encuentra resgistrado");
-                    System.out.println("No se ha podido iniciar session");
-                }
-                
-            }else {
-                System.out.println("No hay nada por buscar");
-            }
+            }    
         }catch(Exception e){
-           // System.out.println("ERROR");
-        }
-    }
+        System.out.println("ERROR");
+        }  
+            return false;
+   }
 }
