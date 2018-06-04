@@ -11,18 +11,34 @@ import archivo.ArchivoLog;
  * @author Vinett
  */
 public class Login {
-    private String username;
-    private String password;
+     private String username;
+     private String password;
+     private ArchivoLog log ;
     
     public Login (String username, String password){
         this.username=username;
         this.password=password;
     }
-    
-    public void usuarioExiste(){
-        ArchivoLog log = new ArchivoLog();       
-        log.loginCliente(this,this.username, this.password);         
-        
-    }
-    
+
+
+     public boolean usuarioClienteExiste(){
+        log = new ArchivoLog();        
+         if (log.existeCliente(username, password)){
+             return true;          
+         }else {
+             return false;
+         }   
+     }
+     
+    public boolean usuarioAdminExiste(){
+        log = new ArchivoLog();        
+         if (log.existeAdmin(username, password)){
+             return true;          
+         }else {
+             return false;
+         }   
+     }
+     
+     
+     
 }
