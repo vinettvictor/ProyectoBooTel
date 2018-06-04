@@ -55,10 +55,10 @@ public class ArchivoLog {
                 String linea;
                // boolean bandera = false;
                 while((linea = br.readLine()) != null){
-                    String estudiante [] = linea.split(";");
-                    if (estudiante[0].equals(nombre) && estudiante[2].equals(pass)) {
+                    String[] admin = linea.split(";");
+                    if (admin[0].equals(nombre) && admin[2].equals(pass)) {
                         
-                        Cliente c = new Cliente(estudiante[0],estudiante[1],estudiante[2],estudiante[3]);
+                        Cliente c = new Cliente(admin[0],admin[1],admin[2],admin[3]);
                         return true;
                     }
                 }
