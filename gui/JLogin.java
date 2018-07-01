@@ -7,6 +7,7 @@ package gui;
 
 import bootel.Login;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,14 +34,17 @@ public class JLogin extends JDialog implements ActionListener{
     public JLogin (VentanaInicio ventana, boolean b){
         super(ventana,b);
         this.contentPanel = new JPanel();
+        //contentPanel.setBackground(Color.yellow);
         this.ventanaPrincipal = ventana;
         setResizable(false);
         setTitle("Login");
-        setBounds(this.getParent().getX() + 600, this.getParent().getY() + 350, 325, 279);
+        setBounds(this.getParent().getX() + 600, this.getParent().getY() + 350, 300, 280);
 	getContentPane().setLayout(new BorderLayout());
 	contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 	getContentPane().add(contentPanel, BorderLayout.CENTER);
-	contentPanel.setLayout(new GridLayout(3, 2, 5, 40));
+	contentPanel.setLayout(new GridLayout(4, 4, 5, 40));
+        
+        
         {
             JLabel lblNewLabel = new JLabel("Usuario:");
             contentPanel.add(lblNewLabel);
@@ -68,41 +72,45 @@ public class JLogin extends JDialog implements ActionListener{
             btnIngresar.addActionListener(this);
             contentPanel.add(btnIngresar);
         }
-    }
-        
-        
-    
-    
-    
-    
-    
-            
+    }     
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        interfaceMenu menu = new interfaceMenu();
+        InterfaceMenuCliente menu = new InterfaceMenuCliente();
         if (ae.getSource() == btnIngresar ){
             Login login = new Login(textField.getText(),String.copyValueOf(textField_1.getPassword()));
             
-            if(login.usuarioClienteExiste() ){
+            if(login.usuarioClienteExiste()) { // Este se ejecutara si un cliente ingresa a la app
+                
                 menu.setDefaultCloseOperation(3);
-                menu.setSize(500,500);
+                menu.setSize(1024,720);
                 menu.setLocationRelativeTo(null);
                 menu.setResizable(false);
                 menu.setTitle(" Menu  BooTel");
-                menu.setVisible(true);
+                menu.setVisible(true);   
                 dispose();
                 
+            }else if (login.usuarioAdminExiste()){  // este se ejecuta cuando un administrador ingresa
                 
-            }else {               
-                JOptionPane.showMessageDialog(this, "El usuario no existe");
+               
+                
+            }else if (textField.getText().isEmpty() && textField_1.getText().isEmpty()) {  
+                JOptionPane.showMessageDialog(this, "Los campos de texto estan vacio, asegurece de ingresar un nombre y una contraseña");
                 this.textField.setText("");
                 this.textField_1.setText("");
-                }
-            }
-              
-                
-           
+                              
+                    }else if ((textField.getText().isEmpty() || textField_1.getText().isEmpty())){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar datos en ambos campos");
+                    this.textField.setText("");
+                    this.textField_1.setText("");
+                    
+                    } else {
+                       JOptionPane.showMessageDialog(this, "El usuario no existe");
+                        this.textField.setText("");
+                        this.textField_1.setText(""); 
+                }          
+            }  
+         
         } 
     }
 
