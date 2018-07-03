@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -22,7 +23,7 @@ import javax.swing.border.EmptyBorder;
 
 /**
  *
- * @author Vinett
+ * @author V. Vinett, C. Herrera, J. Jhanos.
  */
 public class JLogin extends JDialog implements ActionListener{
     private final JPanel contentPanel;
@@ -30,23 +31,36 @@ public class JLogin extends JDialog implements ActionListener{
     private JPasswordField textField_1;
     private JButton btnIngresar;
     private VentanaInicio ventanaPrincipal;
+    private ImageIcon img;
+    private JLabel userimg;
+    
     
     public JLogin (VentanaInicio ventana, boolean b){
         super(ventana,b);
         this.contentPanel = new JPanel();
-        //contentPanel.setBackground(Color.yellow);
-        this.ventanaPrincipal = ventana;
-        setResizable(false);
+        this.ventanaPrincipal = ventana;       
+        setResizable(false);       
         setTitle("Login");
-        setBounds(this.getParent().getX() + 600, this.getParent().getY() + 350, 300, 280);
+        
+        img = new ImageIcon("loginImage/usuario.png");
+        userimg = new JLabel(img);
+        userimg.setBounds(60, 1 , 120, 100);
+        this.add(userimg);
+        
+        contentPanel.setBackground(new Color(255, 255 ,120));
+        
+        setBounds(this.getParent().getX() + 600, this.getParent().getY() + 350, 260, 410);
 	getContentPane().setLayout(new BorderLayout());
-	contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+	contentPanel.setBorder(new EmptyBorder(150, 5, 5, 5));
 	getContentPane().add(contentPanel, BorderLayout.CENTER);
-	contentPanel.setLayout(new GridLayout(4, 4, 5, 40));
+	contentPanel.setLayout(new GridLayout(3, 4, 1, 40));
+        
+        
+        
         
         
         {
-            JLabel lblNewLabel = new JLabel("Usuario:");
+            JLabel lblNewLabel = new JLabel("Usuario:");           
             contentPanel.add(lblNewLabel);
         }
         {
@@ -55,11 +69,11 @@ public class JLogin extends JDialog implements ActionListener{
             textField.setColumns(10);
         }
         {
-            JLabel lblNewLabel_1 = new JLabel("Contrasena");
+            JLabel lblNewLabel_1 = new JLabel("Password");
             contentPanel.add(lblNewLabel_1);
         }
         {
-            textField_1 = new JPasswordField();
+            textField_1 = new JPasswordField();          
             contentPanel.add(textField_1);
             textField_1.setColumns(10);
         }
@@ -72,6 +86,8 @@ public class JLogin extends JDialog implements ActionListener{
             btnIngresar.addActionListener(this);
             contentPanel.add(btnIngresar);
         }
+        
+        
     }     
 
     @Override
@@ -86,7 +102,7 @@ public class JLogin extends JDialog implements ActionListener{
                 menu.setSize(1024,720);
                 menu.setLocationRelativeTo(null);
                 menu.setResizable(false);
-                menu.setTitle(" Menu  BooTel");
+                menu.setTitle(" Menu  BooTel ");
                 menu.setVisible(true);   
                 dispose();
                 
