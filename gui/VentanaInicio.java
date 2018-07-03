@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,12 +26,14 @@ public class VentanaInicio extends JFrame implements ActionListener {
     private JPanel contentPane;
     private JButton btnLogin;
     private JButton btnRegister;
+    private ImageIcon img;
+    private JLabel etiqueta;
     
     public VentanaInicio(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100,0, 1024, 720);
         contentPane = new JPanel();
-        contentPane.setBackground(new Color(255, 200, 0));
+        contentPane.setBackground(new Color(250, 204, 0));
         contentPane.setForeground(new Color(0, 0, 0));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(null);
@@ -38,36 +41,43 @@ public class VentanaInicio extends JFrame implements ActionListener {
         
         this.setTitle("BooTel");
         this.setResizable(false);
-        
+      
+        /*
         JLabel lblBooTel = new JLabel("BooTel");
         lblBooTel.setBounds(302, 310, 413, 113);
         lblBooTel.setFont(new Font("Arial Black", Font.PLAIN, 80));
         lblBooTel.setForeground(new Color(0, 0, 0));
         contentPane.add(lblBooTel);
+        */
         
-        
-        JLabel creators = new JLabel("V. Vinett");
-        creators.setBounds(370, 550, 500, 100);
+        JLabel creators = new JLabel(" Created by : V. Vinett, C. Herrera, J. LLanos");
+        creators.setBounds(20, 0 , 400, 50);
         creators.setFont(new Font("Arial Black", Font.PLAIN, 12));
         creators.setForeground(new Color(0, 0, 0));
         contentPane.add(creators);
         
         
         btnLogin = new JButton("Login");
-        btnLogin.setBounds(770, 632, 97, 25);
-	btnLogin.setForeground(new Color(120,20,40));
-	btnLogin.setBackground(new Color(230, 200, 130));
+        btnLogin.setBounds(410, 500, 97, 25);
+	btnLogin.setForeground(new Color(100,40,40));
+	btnLogin.setBackground(new Color(255, 255, 130));
 	btnLogin.setFont(new Font("Arial Black", Font.PLAIN, 13));
 	btnLogin.addActionListener(this);
 	contentPane.add(btnLogin);
         
         btnRegister = new JButton("Register");
-        btnRegister.setBounds(900,632,97,25);
-        btnRegister.setForeground(new Color(120,20,40));
-        btnRegister.setBackground(new Color(230, 200, 130));
+        btnRegister.setBounds(530,500,97,25);
+        btnRegister.setForeground(new Color(100,40,40));
+        btnRegister.setBackground(new Color(255, 255, 130));
         btnRegister.setFont(new Font("Arial Black", Font.PLAIN, 13));
         btnRegister.addActionListener(this);
         contentPane.add(btnRegister);
+        
+        img = new ImageIcon("inicio.png");
+        etiqueta = new JLabel(img);
+        etiqueta.setBounds(355, 140 , 320, 300);
+        this.add(etiqueta);
+        
        
     }
     
@@ -79,10 +89,12 @@ public class VentanaInicio extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
             if(btnLogin == ae.getSource() ){               
                 JLogin login = new JLogin(this,true);
-                login.setVisible(true);             
+                login.setVisible(true); 
+                dispose();               
             }else if (btnRegister == ae.getSource()) {
                 JRegister register = new JRegister (this,true);
-                register.setVisible(true);                
+                register.setVisible(true); 
+                
             }
  
     }
