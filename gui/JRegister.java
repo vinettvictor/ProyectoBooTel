@@ -6,13 +6,16 @@
 package gui;
 
 import bootel.Register;
+import bootel.Validador;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -24,17 +27,20 @@ import javax.swing.border.EmptyBorder;
  */
 public class JRegister extends JDialog implements ActionListener {
     private final JPanel contentPanel;
-    private JTextField textField,textField_r1,textField_r2;
-    private JPasswordField textField_1;
+    private final JTextField textField,textField_r1,textField_r2;
+    private final JPasswordField textField_1;
     private JButton btnIngresar;
     private VentanaInicio ventanaPrincipal;
     
     public JRegister(VentanaInicio ventana, boolean b){
         super(ventana,b);
         this.contentPanel = new JPanel();
+        
         this.ventanaPrincipal = ventana;
         setResizable(false);
         setTitle("Register");
+        
+        contentPanel.setBackground(new Color(255,255,120));
         setBounds(this.getParent().getX() + 600, this.getParent().getY() + 350, 325, 279);
 	getContentPane().setLayout(new BorderLayout());
 	contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -92,11 +98,46 @@ public class JRegister extends JDialog implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        Validador vd = new Validador();
+        
        if (ae.getSource() == btnIngresar){
-           Register register = new Register(textField.getText(),textField_1.getText(),textField_r1.getText(),textField_r2.getText());
-           register.registrarUsuario();
+            if (vd.validarNombre(textField.getText()) && vd.validarPass(textField_1.getText()) && vd.validarRut(textField_r1.getText()) && vd.validarTexto(textField_r2.getText()) ){
+                    Register register = new Register(textField.getText(),textField_1.getText(),textField_r1.getText(),textField_r2.getText());
+                    register.registrarUsuario();    
+                    dispose();
+                    JOptionPane.showMessageDialog(this, "Te has registrado exitosamente");
+                    this.textField.setText("");
+                    this.textField_1.setText("");
+            }else if(!vd.validarPass(textField_1.getText())) {
+                    JOptionPane.showMessageDialog(this, "ERROR, Asegurate de que tu contraseña conteng lo siguiente.\n1. Minimo 8 caracteres y maximo 15\n2. Al menos una letra mayuscula y una minuscula\n3. Al menos un digito\n4. No tenga espacio en blancos\n5. Al menos 1 caracter especial");
+                    
+                    this.textField.setText("");
+                    this.textField_1.setText("");
+                    
+            }else if (!vd.validarNombre (textField.getText() ) ){
+                    JOptionPane.showMessageDialog(this, "ERROR, Asegurate de que la primera letra de tu nombre se encuentre en Mayuscula");
+                    this.textField.setText("");
+                    this.textField_1.setText("");
+                            
+                    
+                   } else if (!vd.validarRut(textField_r1.getText())) {
+                    JOptionPane.showMessageDialog(this, "ERROR, Asegurate de escribir el rut con puntos y guion (o sin puntos y guion)");
+                    this.textField.setText("");
+                    this.textField_1.setText("");
+                
+            }else if (!vd.validarTexto(textField_r2.getText())) {
+                    JOptionPane.showMessageDialog(this, "ERROR, Asegurate de que en insititucion solo ingreses letras");
+                    this.textField.setText("");
+                    this.textField_1.setText("");
+                
+            }else if (textField.getText().isEmpty() && textField_1.getText().isEmpty() && textField_r1.getText().isEmpty() && textField_r2.getText().isEmpty()) {
+                
+                    JOptionPane.showMessageDialog(this, "ERROR, los campos de texto se encuentran vacios");
+                    this.textField.setText("");
+                    this.textField_1.setText("");
+            }
+            
            
-               
            }
         }     
 }
