@@ -2,9 +2,6 @@
 package bootel;
 
 import gui.VentanaInicio;
-
-
-
 /**
  *
  * @author Vinett, C. Herrera , J. LLanos
