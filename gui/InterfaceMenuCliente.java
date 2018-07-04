@@ -18,11 +18,12 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Vinett
+ * @author V. Vinett, C. Herrera, J. LLanos
  */
+
 public class InterfaceMenuCliente extends javax.swing.JFrame implements ActionListener{
     
-    JLabel etiqueta1, etiqueta2, etiqueta3,etiqueta4,etiqueta5,etiqueta6,etiqueta7,etiqueta8,etiqueta9;
+    JLabel lblDepto1, etiqueta2, etiqueta3,etiqueta4,lblImg1,lblImg2,lblImg3,lblImg4,etiqueta9;
     JTextField num1,num2, num3;
     JComboBox operacion;
     JButton btnver1,btnver2,btnver3,btnver4;
@@ -39,40 +40,42 @@ public class InterfaceMenuCliente extends javax.swing.JFrame implements ActionLi
         miPanel.setPreferredSize(new Dimension(1024,1024));
         scrollPane.setViewportView((miPanel));
         this.add(scrollPane);
-        
-        
-        miPanel.add(etiqueta1);
-        miPanel.add(etiqueta5);
-        miPanel.add(etiqueta6);
-        miPanel.add(etiqueta7);
-        miPanel.add(etiqueta8);
+     
     }
     private void  IniciaInterfaceMenuCliente(){        
-        img1 = new ImageIcon("depto1/img1.png");
-        etiqueta5 = new JLabel(img1);
-        etiqueta5.setBounds(200, 50 , 220, 200);
-        this.add(etiqueta5);
+        img1 = new ImageIcon("z_Imagenes/depto1/img1.png");
+        lblImg1 = new JLabel(img1);
+        lblImg1.setBounds(200, 50 , 220, 200);
+        this.add(lblImg1);
         
-        img2 = new ImageIcon("depto1/img2.png");
-        etiqueta6 = new JLabel(img2);
-        etiqueta6.setBounds(200, 260 , 220, 200);
-        this.add(etiqueta6);
         
-        img2 = new ImageIcon("depto1/img3.png");
-        etiqueta7 = new JLabel(img2);
-        etiqueta7.setBounds(440, 260 , 220, 200);
-        this.add(etiqueta7);
+        img2 = new ImageIcon("z_Imagenes/depto1/img2.png");
+        lblImg2 = new JLabel(img2);
+        lblImg2.setBounds(200, 260 , 220, 200);
+        this.add(lblImg2);
         
-        img3= new ImageIcon("depto1/img4.png");
-        etiqueta8 = new JLabel(img3);
-        etiqueta8.setBounds(440, 50 , 400, 200);
-        this.add(etiqueta8);
+        img2 = new ImageIcon("z_Imagenes/depto1/img3.png");
+        lblImg3 = new JLabel(img2);
+        lblImg3.setBounds(440, 260 , 220, 200);
+        this.add(lblImg3);
+        
+        img3= new ImageIcon("z_Imagenes/depto1/img4.png");
+        lblImg4 = new JLabel(img3);
+        lblImg4.setBounds(440, 50 , 400, 200);
+        this.add(lblImg4);
         
         
         this.setLayout(null);
-        etiqueta1 = new JLabel("Departamento 1:");
-        etiqueta1.setBounds(50, 50, 110, 20);
-        this.add(etiqueta1);
+        lblDepto1 = new JLabel("Departamento 1:");
+        lblDepto1.setBounds(50, 50, 110, 20);
+        this.add(lblDepto1);
+        
+        miPanel.add(lblDepto1);
+        miPanel.add(lblImg1);
+        miPanel.add(lblImg2);
+        miPanel.add(lblImg3);
+        miPanel.add(lblImg4);
+        
         
       /* 
         this.setLayout(null);

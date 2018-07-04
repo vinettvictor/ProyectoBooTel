@@ -42,7 +42,7 @@ public class JLogin extends JDialog implements ActionListener{
         setResizable(false);       
         setTitle("Login");
         
-        img = new ImageIcon("loginImage/usuario.png");
+        img = new ImageIcon("z_Imagenes/loginImage/usuario.png");
         userimg = new JLabel(img);
         userimg.setBounds(60, 1 , 120, 100);
         this.add(userimg);
@@ -54,10 +54,7 @@ public class JLogin extends JDialog implements ActionListener{
 	contentPanel.setBorder(new EmptyBorder(150, 5, 5, 5));
 	getContentPane().add(contentPanel, BorderLayout.CENTER);
 	contentPanel.setLayout(new GridLayout(3, 4, 1, 40));
-        
-        
-        
-        
+               
         
         {
             JLabel lblNewLabel = new JLabel("Usuario:");           
@@ -108,6 +105,8 @@ public class JLogin extends JDialog implements ActionListener{
                 
             }else if (login.usuarioAdminExiste()){  // este se ejecuta cuando un administrador ingresa
                 
+                
+                dispose();
                
                 
             }else if (textField.getText().isEmpty() && textField_1.getText().isEmpty()) {  

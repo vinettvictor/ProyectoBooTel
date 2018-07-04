@@ -73,7 +73,7 @@ public class VentanaInicio extends JFrame implements ActionListener {
         btnRegister.addActionListener(this);
         contentPane.add(btnRegister);
         
-        img = new ImageIcon("inicio.png");
+        img = new ImageIcon("z_Imagenes/inicio.png");
         etiqueta = new JLabel(img);
         etiqueta.setBounds(355, 140 , 320, 300);
         this.add(etiqueta);
