@@ -108,9 +108,9 @@ public class JRegister extends JDialog implements ActionListener {
                     JOptionPane.showMessageDialog(this, "Te has registrado exitosamente");
                     this.textField.setText("");
                     this.textField_1.setText("");
-            }else if(!vd.validarPass(textField_1.getText())) {
-                    JOptionPane.showMessageDialog(this, "ERROR, Asegurate de que tu contraseña conteng lo siguiente.\n1. Minimo 8 caracteres y maximo 15\n2. Al menos una letra mayuscula y una minuscula\n3. Al menos un digito\n4. No tenga espacio en blancos\n5. Al menos 1 caracter especial");
-                    
+            }else if(textField.getText().isEmpty() && textField_1.getText().isEmpty() && textField_r1.getText().isEmpty() && textField_r2.getText().isEmpty()) {
+                
+                    JOptionPane.showMessageDialog(this, "ERROR, los campos de texto se encuentran vacios");
                     this.textField.setText("");
                     this.textField_1.setText("");
                     
@@ -120,7 +120,13 @@ public class JRegister extends JDialog implements ActionListener {
                     this.textField_1.setText("");
                             
                     
-                   } else if (!vd.validarRut(textField_r1.getText())) {
+                   } else if (!vd.validarPass(textField_1.getText())) {
+                    JOptionPane.showMessageDialog(this, "ERROR, Asegurate de que tu contraseña contenga lo siguiente.\n1. Minimo 8 caracteres y maximo 15\n2. Al menos una letra mayuscula y una minuscula\n3. Al menos un digito\n4. No tenga espacio en blancos\n5. Al menos 1 caracter especial");
+                    
+                    this.textField.setText("");
+                    this.textField_1.setText("");
+                
+            }else if (!vd.validarRut(textField_r1.getText())) {
                     JOptionPane.showMessageDialog(this, "ERROR, Asegurate de escribir el rut con puntos y guion (o sin puntos y guion)");
                     this.textField.setText("");
                     this.textField_1.setText("");
@@ -129,15 +135,7 @@ public class JRegister extends JDialog implements ActionListener {
                     JOptionPane.showMessageDialog(this, "ERROR, Asegurate de que en insititucion solo ingreses letras");
                     this.textField.setText("");
                     this.textField_1.setText("");
-                
-            }else if (textField.getText().isEmpty() && textField_1.getText().isEmpty() && textField_r1.getText().isEmpty() && textField_r2.getText().isEmpty()) {
-                
-                    JOptionPane.showMessageDialog(this, "ERROR, los campos de texto se encuentran vacios");
-                    this.textField.setText("");
-                    this.textField_1.setText("");
-            }
-            
-           
-           }
-        }     
+           }                      
+        }
+    }     
 }
