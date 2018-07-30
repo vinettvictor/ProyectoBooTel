@@ -13,10 +13,17 @@ import archivo.ArchivoLog;
 public class Login {
      private String username;
      private String password;
+     private String cod;
      private ArchivoLog log ;
     
-    public Login (String username, String password){
+    public Login (String username, String password){ // constructor para el usuario
         this.username=username;
+        this.password=password;
+    }
+    
+    public Login (String username,String password,String cod){ // constructor para el admin
+        this.cod = cod;
+        this.username = username;
         this.password=password;
     }
 
@@ -32,7 +39,7 @@ public class Login {
      
     public boolean usuarioAdminExiste(){
         log = new ArchivoLog();        
-         if (log.existeAdmin(username, password)){
+         if (log.existeAdmin(username, password,cod)){
              return true;          
          }else {
              return false;
