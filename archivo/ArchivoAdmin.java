@@ -34,8 +34,7 @@ public class ArchivoAdmin {
             }else {
                  fw = new FileWriter(f);
                  bw = new BufferedWriter(fw);
-                 bw.write(nueva.numero+";"+nueva.nHabitacion+";"+nueva.nBaño+";"+nueva.estacionamiento+";"+nueva.capacidad+";"+nueva.distC+";"+nueva.distU+";"+nueva.parteCercana+";"+nueva.valor+";"+nueva.infoDepto);
-                
+                 bw.write(nueva.numero+";"+nueva.nHabitacion+";"+nueva.nBaño+";"+nueva.estacionamiento+";"+nueva.capacidad+";"+nueva.distC+";"+nueva.distU+";"+nueva.parteCercana+";"+nueva.valor+";"+nueva.infoDepto);               
             }
             
             bw.close();
@@ -83,20 +82,19 @@ public class ArchivoAdmin {
                         }else {
                             bw.newLine();
                             bw.write(cont[j]);
-                        }
-                        
-                    }
-                    
+                        }                        
+                    }                   
                 }
+                
                 if ( bandera == false){
                     System.out.println("No se encontro el departamento seleccionado");
                 }
                 bw.close();
                 fw.close();
                 if (numLineas == 1 && bandera == true){ // si hay 1 departamento registrado, y lo elinamos se eliminara el archivo que almacena los datos
-                    f.delete();
-                    
+                    f.delete();                  
                 }
+                
             }else {
                 System.out.println("No hay departamentos por eliminar");
             }

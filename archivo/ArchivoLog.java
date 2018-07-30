@@ -29,7 +29,7 @@ public class ArchivoLog {
                // boolean bandera = false;
                 while((linea = br.readLine()) != null){
                     String estudiante [] = linea.split(";");
-                    if (estudiante[0].equals(nombre) && estudiante[2].equals(pass)) {
+                    if (estudiante[0].equals(nombre) && estudiante[1].equals(pass)) {
                         
                         Cliente c = new Cliente(estudiante[0],estudiante[1],estudiante[2],estudiante[3]);
                         
@@ -46,7 +46,7 @@ public class ArchivoLog {
             return false;
    }
         
-            public boolean existeAdmin(String nombre, String pass){
+            public boolean existeAdmin(String nombre, String pass, String cod){
             try {
             File f = new File("Admins.txt");
             if(f.exists()){
@@ -56,7 +56,7 @@ public class ArchivoLog {
                // boolean bandera = false;
                 while((linea = br.readLine()) != null){
                     String[] admin = linea.split(";");
-                    if (admin[0].equals(nombre) && admin[2].equals(pass)) {
+                    if (admin[0].equals(nombre) && admin[2].equals(pass) && admin[3].equals(cod)) {
                         
                         Cliente c = new Cliente(admin[0],admin[1],admin[2],admin[3]);
                         return true;
