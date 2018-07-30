@@ -26,6 +26,7 @@ public class VentanaInicio extends JFrame implements ActionListener {
     private JPanel contentPane;
     private JButton btnLogin;
     private JButton btnRegister;
+    private JButton btnLoginAd;
     private ImageIcon img;
     private JLabel etiqueta;
     
@@ -54,8 +55,7 @@ public class VentanaInicio extends JFrame implements ActionListener {
         creators.setBounds(20, 0 , 400, 50);
         creators.setFont(new Font("Arial Black", Font.PLAIN, 12));
         creators.setForeground(new Color(0, 0, 0));
-        contentPane.add(creators);
-        
+        contentPane.add(creators);       
         
         btnLogin = new JButton("Login");
         btnLogin.setBounds(410, 500, 97, 25);
@@ -64,6 +64,14 @@ public class VentanaInicio extends JFrame implements ActionListener {
 	btnLogin.setFont(new Font("Arial Black", Font.PLAIN, 13));
 	btnLogin.addActionListener(this);
 	contentPane.add(btnLogin);
+        
+        btnLoginAd = new JButton("Admin login");
+        btnLoginAd.setBounds(446,660,140,17);
+        btnLoginAd.setForeground(new Color(100,40,40));
+        btnLoginAd.setBackground(new Color(255,255,130));
+        btnLoginAd.setFont(new Font("Arial Black",Font.PLAIN, 13));
+        btnLoginAd.addActionListener(this);
+        contentPane.add(btnLoginAd);
         
         btnRegister = new JButton("Register");
         btnRegister.setBounds(530,500,97,25);
@@ -76,27 +84,24 @@ public class VentanaInicio extends JFrame implements ActionListener {
         img = new ImageIcon("z_Imagenes/inicio.png");
         etiqueta = new JLabel(img);
         etiqueta.setBounds(355, 140 , 320, 300);
-        this.add(etiqueta);
-        
-       
-    }
-    
-    
-    
-    
-    
+        this.add(etiqueta);             
+    }    
+           
     @Override
     public void actionPerformed(ActionEvent ae) {
             if(btnLogin == ae.getSource() ){               
                 JLogin login = new JLogin(this,true);
                 login.setVisible(true); 
-                dispose();               
+                    
+            }else if (btnLoginAd == ae.getSource()) {
+                JLoginAdmin loginAd = new JLoginAdmin(this,true);
+                loginAd.setVisible(true);
+                
+                
+                
             }else if (btnRegister == ae.getSource()) {
                 JRegister register = new JRegister (this,true);
-                register.setVisible(true); 
-                
-            }
- 
-    }
-    
+                register.setVisible(true);                
+        }
+    }    
 }

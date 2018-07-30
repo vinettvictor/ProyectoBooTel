@@ -25,6 +25,7 @@ import javax.swing.border.EmptyBorder;
  *
  * @author V. Vinett, C. Herrera, J. Jhanos.
  */
+
 public class JLogin extends JDialog implements ActionListener{
     private final JPanel contentPanel;
     private JTextField textField;
@@ -53,8 +54,7 @@ public class JLogin extends JDialog implements ActionListener{
 	getContentPane().setLayout(new BorderLayout());
 	contentPanel.setBorder(new EmptyBorder(150, 5, 5, 5));
 	getContentPane().add(contentPanel, BorderLayout.CENTER);
-	contentPanel.setLayout(new GridLayout(3, 4, 1, 40));
-               
+	contentPanel.setLayout(new GridLayout(3, 4, 1, 40));               
         
         {
             JLabel lblNewLabel = new JLabel("Usuario:");           
@@ -82,9 +82,7 @@ public class JLogin extends JDialog implements ActionListener{
             btnIngresar = new JButton("Ingresar");
             btnIngresar.addActionListener(this);
             contentPanel.add(btnIngresar);
-        }
-        
-        
+        }                
     }     
 
     @Override
@@ -101,14 +99,8 @@ public class JLogin extends JDialog implements ActionListener{
                 menu.setResizable(false);
                 menu.setTitle(" Menu  BooTel ");
                 menu.setVisible(true);   
-                dispose();
-                
-            }else if (login.usuarioAdminExiste()){  // este se ejecuta cuando un administrador ingresa
-                
-                
-                dispose();
-               
-                
+                dispose();           
+                                          
             }else if (textField.getText().isEmpty() && textField_1.getText().isEmpty()) {  
                 JOptionPane.showMessageDialog(this, "Los campos de texto estan vacio, asegurece de ingresar un nombre y una contraseña");
                 this.textField.setText("");
@@ -124,8 +116,7 @@ public class JLogin extends JDialog implements ActionListener{
                         this.textField.setText("");
                         this.textField_1.setText(""); 
                 }          
-            }  
-         
+            }    
         } 
     }
 
