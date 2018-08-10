@@ -44,6 +44,7 @@ public class JLoginAdmin extends JDialog implements ActionListener{
         setResizable(false);       
         setTitle("Login");
         
+        
         img = new ImageIcon("z_Imagenes/loginImage/usuario.png");
         userimg = new JLabel(img);
         userimg.setBounds(60, 1 , 120, 100);
@@ -51,7 +52,7 @@ public class JLoginAdmin extends JDialog implements ActionListener{
         
         contentPanel.setBackground(new Color(255, 255 ,120));
         
-        setBounds(this.getParent().getX() + 600, this.getParent().getY() + 350, 260, 410);
+        setBounds(this.getParent().getX() + 600, this.getParent().getY() + 150, 260, 410);
 	getContentPane().setLayout(new BorderLayout());
 	contentPanel.setBorder(new EmptyBorder(150, 5, 5, 5));
 	getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -101,15 +102,32 @@ public class JLoginAdmin extends JDialog implements ActionListener{
         if (btnIngresar == ae.getSource()) {
             Login log = new Login(textField.getText(),String.copyValueOf(textField_1.getPassword()),textField_cod.getText());
             if(log.usuarioAdminExiste()) { // Este se ejecutara si un cliente ingresa a la app
+                
+                
                 imd.setDefaultCloseOperation(3);
-                imd.setSize(1024,720);
+                imd.setSize(300,480);
+               
                 imd.setLocationRelativeTo(null);
                 imd.setResizable(false);
-                imd.setTitle(" Menu  BooTel ");
+                imd.setTitle("Modo Administrador");
                 imd.setVisible(true);   
                 dispose();                                   
-            }
-            
+            }else if (textField.getText().isEmpty() && textField_1.getText().isEmpty() && textField_cod.getText().isEmpty()) {  
+                JOptionPane.showMessageDialog(this, "Los campos de texto estan vacio, asegurece de ingresar un nombre y una contraseña");
+                this.textField.setText("");
+                this.textField_1.setText("");
+                              
+                    }else if ((textField.getText().isEmpty() || textField_1.getText().isEmpty() || textField_cod.getText().isEmpty())){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar datos en todos los campos");
+                    this.textField.setText("");
+                    this.textField_1.setText("");
+                    
+                    } else {
+                       JOptionPane.showMessageDialog(this, "El usuario no existe");
+                        this.textField.setText("");
+                        this.textField_1.setText(""); 
+                }          
+            }           
         }
     }
-    }
+    

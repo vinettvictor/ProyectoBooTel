@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -50,7 +51,7 @@ public class JLogin extends JDialog implements ActionListener{
         
         contentPanel.setBackground(new Color(255, 255 ,120));
         
-        setBounds(this.getParent().getX() + 600, this.getParent().getY() + 350, 260, 410);
+        setBounds(this.getParent().getX() + 600, this.getParent().getY() + 150, 260, 410);
 	getContentPane().setLayout(new BorderLayout());
 	contentPanel.setBorder(new EmptyBorder(150, 5, 5, 5));
 	getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -80,26 +81,31 @@ public class JLogin extends JDialog implements ActionListener{
         }
         {
             btnIngresar = new JButton("Ingresar");
-            btnIngresar.addActionListener(this);
+            btnIngresar.addActionListener(this);           
             contentPanel.add(btnIngresar);
         }                
     }     
+    
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         InterfaceMenuCliente menu = new InterfaceMenuCliente();
+        InterfaceMenu im = new InterfaceMenu();
         if (ae.getSource() == btnIngresar ){
             Login login = new Login(textField.getText(),String.copyValueOf(textField_1.getPassword()));
             
             if(login.usuarioClienteExiste()) { // Este se ejecutara si un cliente ingresa a la app
                 
-                menu.setDefaultCloseOperation(3);
-                menu.setSize(1024,720);
-                menu.setLocationRelativeTo(null);
-                menu.setResizable(false);
-                menu.setTitle(" Menu  BooTel ");
-                menu.setVisible(true);   
-                dispose();           
+           
+                
+                im.setDefaultCloseOperation(3);
+                im.setSize(720,480); // 1024 , 720 clienteMenu
+                im.setLocationRelativeTo(null);
+                im.setResizable(false);
+                im.setTitle(" Menu  BooTel ");
+                im.setVisible(true);   
+                dispose();   
+                
                                           
             }else if (textField.getText().isEmpty() && textField_1.getText().isEmpty()) {  
                 JOptionPane.showMessageDialog(this, "Los campos de texto estan vacio, asegurece de ingresar un nombre y una contraseña");

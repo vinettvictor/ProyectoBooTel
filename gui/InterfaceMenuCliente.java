@@ -5,13 +5,14 @@
  */
 package gui;
 
-import java.awt.Component;
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -25,32 +26,31 @@ import javax.swing.JTextField;
 
 public class InterfaceMenuCliente extends javax.swing.JFrame implements ActionListener{
     
-    private JLabel lblDepto1,lblImg1,lblImg2,lblImg3,lblImg4,lblImg5,lblImg6;
+    private JLabel lblDepto1,lblImg1,lblImg2,lblImg3,lblImg4,lblImg5,lblImg6,lbldescript;
     private JTextField num1,num2, num3;
     private JComboBox operacion;
-    private JButton btnver1,btnver2,btnver3,btnver4;
+    private JButton btnver1,btnver2,btnver3,btnver4,btnreserva,btnsiguiente;
     private JPanel miPanel;
     private ImageIcon img1,img2,img3,img4,img5,iconImgWifi,iconImgNf;
     private JScrollPane scrollPane;
     private JTextArea textarea ,textarea2;
     private String texto,texto2;
     
-    public InterfaceMenuCliente() {
-        
-        setTitle ("Departamento Numero 1") ;
+    public InterfaceMenuCliente() {        
         setSize (420,250);
         
         setLocationRelativeTo(null);
         scrollPane = new JScrollPane();
         scrollPane.setBounds(5,10,1000,720);
         
-        IniciaInterfaceMenuCliente();
+        IniciaMenuDepto();
         miPanel.setPreferredSize(new Dimension(1024,1024));       
         scrollPane.setViewportView((miPanel));
         this.add(scrollPane);    
+        
     }   
  
-    private void  IniciaInterfaceMenuCliente(){  
+    private void  IniciaMenuDepto(){  
         miPanel = new JPanel();
         miPanel.setLayout(null);
         
@@ -99,7 +99,7 @@ public class InterfaceMenuCliente extends javax.swing.JFrame implements ActionLi
         
         texto2 = "Conexión WiFi gratuita "
                 + "\nHabitaciones no fumadores " 
-                + "\nIdeal para parejas";
+                + "\nIdeal para estudiantes";
         
         textarea = new JTextArea();
         textarea.setText(texto);
@@ -117,6 +117,14 @@ public class InterfaceMenuCliente extends javax.swing.JFrame implements ActionLi
         this.add(lblDepto1);
         
         
+        btnreserva = new JButton("Reservar");
+        btnreserva.setBounds(750,800,120,20);
+        btnreserva.addActionListener(this);
+        this.add(btnreserva);
+        
+        
+        
+        
         miPanel.add(lblDepto1);
         miPanel.add(lblImg1);
         miPanel.add(lblImg2);
@@ -126,7 +134,7 @@ public class InterfaceMenuCliente extends javax.swing.JFrame implements ActionLi
         miPanel.add(textarea2);
         miPanel.add(lblImg5);
         miPanel.add(lblImg6);
-        
+        miPanel.add(btnreserva);
         
       /* 
         this.setLayout(null);
@@ -182,13 +190,28 @@ public class InterfaceMenuCliente extends javax.swing.JFrame implements ActionLi
         this.add(btnver4);
         
         */
+        
+        
     }
+    
+
         
     
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        VentanaReserva vr = new VentanaReserva();
+        if(btnreserva == ae.getSource()){
+            
+                vr.setDefaultCloseOperation(3);
+                vr.setSize(420,520);
+                vr.setLocationRelativeTo(null);
+                vr.setResizable(false);
+                vr.setTitle("Reserva");
+                vr.setVisible(true);   
+                dispose();
+        
+    }
     }
     
 }
