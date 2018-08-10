@@ -12,12 +12,13 @@ package bootel;
  * @author V. Vinett, C. Herrera, J. llanos.
  */
 public class Reserva {
+    
     public String nombreEstudiante;
-    public int numeroDepto,precio;
+    public String numeroDepto,precio;
     public String rutEstudiante;
    
     
-    public Reserva(String nombreEstudiante,String rutEstudiante,int numeroDepto,int precio){
+    public Reserva(String nombreEstudiante,String rutEstudiante,String numeroDepto,String precio){
         this.nombreEstudiante=nombreEstudiante;
         this.rutEstudiante=rutEstudiante;
         this.numeroDepto=numeroDepto;
