@@ -43,7 +43,7 @@ public class ArchivoDepto {
         }
     }
     
-    public void reservarDepto(Reserva nueva,String rutEstudiante,String nombreEstudiante){
+    public void reservarDepto(Reserva nueva,String nombreEstudiante,String rutEstudiante){
         boolean bandera = false;
          try {
             File f = new File("Registro.txt");
@@ -54,7 +54,7 @@ public class ArchivoDepto {
                // boolean bandera = false;
                 while((linea = br.readLine()) != null){
                     String estudiante [] = linea.split(";");
-                    if (estudiante[1].equals(rutEstudiante) && estudiante[0].equals(nombreEstudiante)) {
+                    if (estudiante[0].equals(nombreEstudiante) && estudiante[1].equals(rutEstudiante)) {
                         bandera = true;
                         Cliente c = new Cliente(estudiante[0],estudiante[1],estudiante[2],estudiante[3]);
                         
