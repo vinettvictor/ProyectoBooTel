@@ -31,7 +31,7 @@ public class VentanaInicio extends JFrame implements ActionListener {
     private JLabel etiqueta;
     
     public VentanaInicio(){
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100,0, 1024, 720);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(250, 204, 0));
@@ -92,7 +92,7 @@ public class VentanaInicio extends JFrame implements ActionListener {
             if(btnLogin == ae.getSource() ){               
                 JLogin login = new JLogin(this,true);
                 login.setVisible(true); 
-                dispose();
+               
                     
             }else if (btnLoginAd == ae.getSource()) {
                 JLoginAdmin loginAd = new JLoginAdmin(this,true);
